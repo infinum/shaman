@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'commander/import'
+require 'shaman'
+require 'pry'
+
+program :version, '0.0.1'
+program :description, 'Shaman cli for labs'
+program :help_formatter, :compact
+
+command :init do |c|
+  c.syntax = 'shaman init [-f] [-t]'
+  c.description = 'Initialize your project'
+  c.option '-f', '--file FILE', String, 'Application file path'
+  c.option '-t', '--token TOKEN', String, 'Environment token'
+  c.option '-u', '--user EMAIL', String, 'Labs user email'
+  c.action do |_args, options|
+    Shaman::Init.init(options)
+  end
+end
+
+command :deploy do |c|
+  c.syntax = 'shaman deploy'
+  c.description = 'Deploy a release'
+  c.option '-m', '--message MESSAGE', String, 'Changelog message'
+  c.option '-f', '--file FILE', String, 'Release path'
+  c.option '-p', '--proguard FILE', String, 'Add aditional proguard mapping'
+  # c.option '-h', '--httparty', 'User HTTMultiParty instead of curl (no progress bar)'
+  c.option '-t', '--token TOKEN', String, 'Use different environment token'
+  c.option '-c', '--config FILE', String, 'Use different config file'
+  c.option '-u', '--user EMAIL', String, 'Labs user email'
+  c.action do |_args, options|
+    begin
+      Shaman::Deploy.new(options).deploy
+    rescue => e
+      say_error e.message
+    end
+  end
+end
