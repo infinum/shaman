@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
 
+$LOAD_PATH << 'lib'
 require 'rubygems'
 require 'commander/import'
 require 'shaman'
-require 'pry'
+# require 'pry'
 
-program :version, '0.0.1'
+program :version, Shaman::VERSION
 program :description, 'Shaman cli for labs'
 program :help_formatter, :compact
 
@@ -26,10 +27,11 @@ command :deploy do |c|
   c.option '-m', '--message MESSAGE', String, 'Changelog message'
   c.option '-f', '--file FILE', String, 'Release path'
   c.option '-p', '--proguard FILE', String, 'Add aditional proguard mapping'
-  # c.option '-h', '--httparty', 'User HTTMultiParty instead of curl (no progress bar)'
   c.option '-t', '--token TOKEN', String, 'Use different environment token'
   c.option '-c', '--config FILE', String, 'Use different config file'
-  c.option '-u', '--user EMAIL', String, 'Labs user email'
+  c.option '-d', '--deployer EMAIL', String, 'Labs deployer email'
+  c.option '-g', '--git', 'Use git for deployer email and message (overrides any manual settings!)'
+  c.option '-C', '--commit COMMIT', String, 'which commit to use instead of HEAD'
   c.action do |_args, options|
     begin
       Shaman::Deploy.new(options).deploy
