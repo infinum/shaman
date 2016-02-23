@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/shaman_cli.svg)](https://badge.fury.io/rb/shaman_cli)
+
 # Shaman
 
 Cli for integrating with labs.infinum.co
@@ -30,11 +32,11 @@ Example of `.shaman.yml`
 
 Explanation:
 
-`release_path`      - this is the path to the release file
-`environment_token` - This is a token you can find
-[https://scr.infinum.co/stjepan_hadjic/Infinum_Labs_2016-02-23_17-14-08.png]
-`deployer_email`    - This is an email you use with your git commits. You will also need to add this to your labs account.
-[https://scr.infinum.co/stjepan_hadjic/Infinum_Labs_2016-02-23_17-16-52.png]
+`release_path`      - this is the path to the release file  
+`environment_token` - This is a token you can find  
+![environment_token](https://scr.infinum.co/stjepan_hadjic/Infinum_Labs_2016-02-23_17-14-08.png)
+`deployer_email`    - This is an email you use with your git commits. You will also need to add this to your labs account.  
+![deployer_email](https://scr.infinum.co/stjepan_hadjic/Infinum_Labs_2016-02-23_17-16-52.png)
 
 ### Deploy
 
@@ -66,4 +68,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
