@@ -1,40 +1,40 @@
 #!/usr/bin/env ruby
 
-$LOAD_PATH << 'lib'
 require 'rubygems'
 require 'commander/import'
 require 'shaman'
-# require 'pry'
+require 'pry' if ENV['SHAMAN_ENV'] == 'development'
 
 program :version, Shaman::VERSION
 program :description, 'Shaman cli for labs'
 program :help_formatter, :compact
 
 command :init do |c|
-  c.syntax = 'shaman init [-f] [-t]'
-  c.description = 'Initialize your project'
-  c.option '-f', '--file FILE', String, 'Application file path'
-  c.option '-t', '--token TOKEN', String, 'Environment token'
-  c.option '-u', '--user EMAIL', String, 'Labs user email'
+  c.syntax = 'shaman init platform'
+  c.description = 'Initialize your'
+  c.option '-s', '--search STRING', String, 'Shrink project selection'
+  c.option '-f', '--favorites', 'Show only favorites'
+  c.option '-p', '--platform PLATFORM', 'Choose platform'
+  c.option '-i', '--project_id PROJECT', 'Choose project id'
   c.action do |_args, options|
+    Shaman::Init.check
     Shaman::Init.init(options)
   end
 end
 
 command :deploy do |c|
-  c.syntax = 'shaman deploy'
-  c.description = 'Deploy a release'
+  c.syntax = 'shaman deploy [environment]'
+  c.description = 'Deploy a release to specified environment'
   c.option '-m', '--message MESSAGE', String, 'Changelog message'
   c.option '-f', '--file FILE', String, 'Release path'
   c.option '-p', '--proguard FILE', String, 'Add aditional proguard mapping'
-  c.option '-t', '--token TOKEN', String, 'Use different environment token'
+  c.option '-t', '--token TOKEN', String, 'Use different user token'
   c.option '-c', '--config FILE', String, 'Use different config file'
-  c.option '-d', '--deployer EMAIL', String, 'Labs deployer email'
-  c.option '-g', '--git', 'Use git for deployer email and message (overrides any manual settings!)'
+  c.option '-g', '--git', 'Use git for message (overrides any manual settings!)'
   c.option '-C', '--commit COMMIT', String, 'which commit to use instead of HEAD'
-  c.action do |_args, options|
+  c.action do |args, options|
     begin
-      Shaman::Deploy.new(options).deploy
+      Shaman::Deploy.new(args, options).deploy
     rescue => e
       say_error e.message
     end

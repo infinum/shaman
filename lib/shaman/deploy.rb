@@ -1,38 +1,43 @@
 module Shaman
   class Deploy
-    attr_reader :options
+    include Helpers
 
-    def initialize(options)
+    def initialize(args, options)
+      error!('Must specify environment') if args.count != 1
+      @environment = args.first
       @options = options
       verify_options
     end
 
     def deploy
-      say_ok "Connecting to #{LABS_URL}/api/v1/releases"
-      say_ok "Sending #{deploy_options.to_yaml}"
+      prompt.ok "Connecting to #{LABS_URL}/api/v1/releases"
       response = HTTP.post("#{LABS_URL}/api/v1/releases", form: deploy_options)
-      response.code == 200 ? say_ok(response.body.to_s) : say_error(response.body.to_s)
+      response.code == 200 ? prompt.ok(response.body.to_s) : prompt.error(response.body.to_s)
     end
 
     private
 
+    attr_reader :environment, :options
+
     def deploy_options
+      raise 'Wrong environment' if config.nil?
       @deploy_options ||= {
-        environment_token: options.token || config[:environment_token],
+        environment_token: config[:token],
         release: HTTP::FormData::File.new(options.file || config[:release_path]),
         message: message || '',
-        deployer: deployer
+        token: options.token || ENV['SHAMAN_TOKEN']
       }
     end
 
     def verify_options
       deploy_options.each do |key, value|
-        fail "Please specify #{key}" if value.nil?
+        raise "Please specify #{key}" if value.nil?
       end
     end
 
     def config
-      @config ||= YAML.load_file(options.config || PROJECT_CONFIG_PATH)
+      @config ||=
+        YAML.load_file(options.config || PROJECT_CONFIG_PATH)[environment]
     end
 
     def gcommit
@@ -41,10 +46,6 @@ module Shaman
 
     def message
       options.git ? gcommit.message : options.message || ask_editor(nil, 'vi')
-    end
-
-    def deployer
-      options.git ? gcommit.committer.email : options.deployer || config[:deployer_email]
     end
   end
 end
