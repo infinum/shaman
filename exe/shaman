@@ -10,7 +10,7 @@ program :description, 'Shaman cli for labs'
 program :help_formatter, :compact
 
 command :init do |c|
-  c.syntax = 'shaman init platform'
+  c.syntax = 'shaman init'
   c.description = 'Initialize your'
   c.option '-s', '--search STRING', String, 'Shrink project selection'
   c.option '-f', '--favorites', 'Show only favorites'
