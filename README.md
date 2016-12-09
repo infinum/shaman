@@ -8,7 +8,7 @@ Cli for integrating with labs.infinum.co
 
 Install it yourself as:
 
-    $ gem install shaman
+    $ gem install shaman_cli
 
 Get your user token from `https://labs.infinum.co/users/me` and export it to environment variable `SHAMAN_TOKEN`
 
