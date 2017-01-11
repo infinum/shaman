@@ -1,6 +1,7 @@
 module Shaman
   class Init
     include Shaman::Helpers
+    extend Shaman::Helpers
 
     def self.check
       return unless ENV['SHAMAN_TOKEN'].nil?
