@@ -11,7 +11,7 @@ program :help_formatter, :compact
 
 command :init do |c|
   c.syntax = 'shaman init'
-  c.description = 'Initialize your'
+  c.description = 'Initialize your project. EXAMPLE: shaman init -s abamobi'
   c.option '-s', '--search STRING', String, 'Shrink project selection'
   c.option '-f', '--favorites', 'Show only favorites'
   c.option '-p', '--platform PLATFORM', 'Choose platform'
