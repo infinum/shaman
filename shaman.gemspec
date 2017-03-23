@@ -25,5 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'http'
   spec.add_dependency 'git'
   spec.add_dependency 'commander'
-  spec.add_dependency 'tty-prompt'
+  spec.add_dependency 'tty-prompt', '0.12.0'
 end
