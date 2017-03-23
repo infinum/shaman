@@ -37,6 +37,7 @@ command :deploy do |c|
       Shaman::Deploy.new(args, options).deploy
     rescue => e
       say_error e.message
+      exit(-1)
     end
   end
 end
