@@ -25,7 +25,8 @@ module Shaman
         environment_token: config[:token],
         release: HTTP::FormData::File.new(options.file || config[:release_path]),
         message: message || '',
-        token: options.token || ENV['SHAMAN_TOKEN']
+        token: options.token || ENV['SHAMAN_TOKEN'],
+        minimum_version: options.minimum_version || false
       }
     end
 

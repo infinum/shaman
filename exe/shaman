@@ -32,6 +32,7 @@ command :deploy do |c|
   c.option '-c', '--config FILE', String, 'Use different config file'
   c.option '-g', '--git', 'Use git for message (overrides any manual settings!)'
   c.option '-C', '--commit COMMIT', String, 'which commit to use instead of HEAD'
+  c.option '-M', '--minimum_version', 'Set release as minimum version'
   c.action do |args, options|
     begin
       Shaman::Deploy.new(args, options).deploy
