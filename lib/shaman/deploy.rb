@@ -3,7 +3,7 @@ module Shaman
     include Helpers
 
     def initialize(args, options)
-      error!('Must specify environment') if args.count != 1
+      error!('Must specify environment') if args.count < 1
       @environment = args.first
       @options = options
       verify_options
@@ -12,7 +12,7 @@ module Shaman
     def deploy
       prompt.ok "Connecting to #{LABS_URL}/api/v1/releases"
       response = HTTP.post("#{LABS_URL}/api/v1/releases", form: deploy_options)
-      response.code == 200 ? prompt.ok(response.body.to_s) : prompt.error(response.body.to_s)
+      response.code == 200 ? prompt.ok(response.body.to_s) : error!(response.body.to_s)
     end
 
     private
