@@ -2,7 +2,7 @@
 
 # Shaman
 
-Cli for integrating with labs.infinum.co
+Cli for integrating with Tryoutapps.com
 
 ## Installation
 
@@ -10,9 +10,14 @@ Install it yourself as:
 
     $ gem install shaman_cli
 
-Get your user token from `https://labs.infinum.co/users/me` and export it to environment variable `SHAMAN_TOKEN`
+Get your user token from `https://[TENANT].tryoutapps.com/users/me` and export it to environment variable `SHAMAN_TOKEN`.
 
     export SHAMAN_TOKEN=infnweoinfwi32r23jr2309j
+
+Export your Tryoutapps tenant URL to the environement variable `SERVER_URL`
+
+    export SERVER_URL=https://[TENANT].tryoutapps.com
+
 
 ## Usage
 
@@ -38,7 +43,7 @@ Example of `.shaman.yml`
 
 Explanation:
 
-`release_path`      - this is the path to the release file  
+`release_path`      - this is the path to the release file
 `token`             - This is the environment token for communicating with API
 
 ### Deploy

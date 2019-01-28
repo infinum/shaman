@@ -9,11 +9,12 @@ require 'shaman/version'
 
 module Shaman
   PROJECT_CONFIG_PATH = '.shaman.yml'.freeze
-  LABS_URL =
+  DEFAULT_URL =
     case ENV['SHAMAN_ENV']
     when 'development' then 'http://localhost:3000'
-    when 'staging' then 'https://labs-staging.infinum.co'
+    when 'staging' then 'https://staging-infinum.tryoutapps.com'
     else
-      'https://labs.infinum.co'
+      'https://infinum.tryoutapps.com'
     end
+  LABS_URL = ENV['SERVER_URL'] || DEFAULT_URL
 end
