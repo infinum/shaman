@@ -2,7 +2,7 @@
 
 # Shaman
 
-Cli for integrating with Tryoutapps.com
+CLI for deploying builds to Tryoutapps.com
 
 ## Installation
 
@@ -20,6 +20,7 @@ Export your Tryoutapps tenant URL to the environement variable `SERVER_URL`
 
 
 ## Usage
+First make sure that you have created your `project` and the desired `environment` on you Tryoutapps tenant. This will allow you to see all your tenant independent projects in the shaman init prompt.
 
 ### Init
 
