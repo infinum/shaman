@@ -58,13 +58,14 @@ This will deploy your relese file to labs with with configs from .shaman.yml
     Deploy a release to specified environment
 
     Options:
-      -m, --message MESSAGE Changelog message
-      -f, --file FILE      Release path
-      -t, --token TOKEN    Use different user token
-      -c, --config FILE    Use different config file
-      -g, --git            Use git for message (overrides any manual settings!)
-      -C, --commit COMMIT  which commit to use instead of HEAD
-
+      -m, --message MESSAGE         Changelog message
+      -f, --file FILE               Release path
+      -t, --token TOKEN             Use different user token
+      -c, --config FILE             Use different config file
+      -g, --git                     Use git for message (overrides any manual settings!)
+      -C, --commit COMMIT           Which commit to use instead of HEAD
+      -V, --release_version VERSION Custom release version (ZIP platform only)
+      -P, --platform PLATFORM       Specify platform (for use with ZIP release verion setting)
 
 ## License
 

@@ -26,7 +26,8 @@ module Shaman
         release: HTTP::FormData::File.new(options.file || config[:release_path]),
         message: message || '',
         token: options.token || ENV['SHAMAN_TOKEN'],
-        minimum_version: options.minimum_version || false
+        minimum_version: options.minimum_version || false,
+        name: version || ''
       }
     end
 
@@ -47,6 +48,10 @@ module Shaman
 
     def message
       options.git ? gcommit.message : options.message || ask_editor(nil, 'vi')
+    end
+
+    def version
+      options.release_version || ask('Version: ') if options.platform == 'zip'
     end
   end
 end
