@@ -65,7 +65,6 @@ This will deploy your relese file to labs with with configs from .shaman.yml
       -g, --git                     Use git for message (overrides any manual settings!)
       -C, --commit COMMIT           Which commit to use instead of HEAD
       -V, --release_version VERSION Custom release version (ZIP platform only)
-      -P, --platform PLATFORM       Specify platform (for use with ZIP release verion setting)
 
 ## License
 
