@@ -1,3 +1,3 @@
 module Shaman
-  VERSION = '2.5.1'.freeze
+  VERSION = '2.6'.freeze
 end
