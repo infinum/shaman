@@ -27,7 +27,7 @@ module Shaman
         message: message || '',
         token: options.token || ENV['SHAMAN_TOKEN'],
         minimum_version: options.minimum_version || false,
-        name: options.release_version || ''
+        name: options.release_name || ''
       }
     end
 
