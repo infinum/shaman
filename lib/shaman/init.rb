@@ -5,7 +5,7 @@ module Shaman
 
     def self.check
       return unless ENV['SHAMAN_TOKEN'].nil?
-      error! "SHAMAN_TOKEN not defined. Please find it at #{LABS_URL}/me"
+      error! "SHAMAN_TOKEN not defined. Please find it at #{LABS_URL}/users/me"
     end
 
     def self.init(options)

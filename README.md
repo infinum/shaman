@@ -2,7 +2,7 @@
 
 # Shaman
 
-Cli for integrating with Tryoutapps.com
+CLI for deploying builds to Tryoutapps.com
 
 ## Installation
 
@@ -20,6 +20,7 @@ Export your Tryoutapps tenant URL to the environement variable `SERVER_URL`
 
 
 ## Usage
+First make sure that you have created your `project` and the desired `environment` on you Tryoutapps tenant. This will allow you to see all your tenant independent projects in the shaman init prompt.
 
 ### Init
 
@@ -57,13 +58,13 @@ This will deploy your relese file to labs with with configs from .shaman.yml
     Deploy a release to specified environment
 
     Options:
-      -m, --message MESSAGE Changelog message
-      -f, --file FILE      Release path
-      -t, --token TOKEN    Use different user token
-      -c, --config FILE    Use different config file
-      -g, --git            Use git for message (overrides any manual settings!)
-      -C, --commit COMMIT  which commit to use instead of HEAD
-
+      -m, --message MESSAGE             Changelog message
+      -f, --file FILE                   Release path
+      -t, --token TOKEN                 Use different user token
+      -c, --config FILE                 Use different config file
+      -g, --git                         Use git for message (overrides any manual settings!)
+      -C, --commit COMMIT               Which commit to use instead of HEAD
+      -n, --release_name RELEASE_NAME   Release name (ZIP platform only)
 
 ## License
 
