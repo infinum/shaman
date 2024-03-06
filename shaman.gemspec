@@ -5,12 +5,12 @@ require 'shaman/version'
 Gem::Specification.new do |spec|
   spec.name          = 'shaman_cli'
   spec.version       = Shaman::VERSION
-  spec.authors       = ['Stjepan Hadjic']
-  spec.email         = ['d4be4st@gmail.com']
+  spec.authors       = ['Rails team']
+  spec.email         = ['team.rails@infinum.com']
 
-  spec.summary       = 'Command tool for labs'
-  spec.description   = 'Very cool command tool for infinum'
-  spec.homepage      = 'http://www.infinum.co'
+  spec.summary       = 'Shaman CLI'
+  spec.description   = 'CLI tool for deploying builds to Tryoutapps service'
+  spec.homepage      = 'https://github.com/infinum/shaman'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
