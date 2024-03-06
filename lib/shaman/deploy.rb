@@ -22,7 +22,7 @@ module Shaman
     def deploy_options
       raise 'Wrong environment' if config.nil?
       @deploy_options ||= {
-        environment_token: config[:token],
+        environment_token: options.env_token || config[:token],
         release: HTTP::FormData::File.new(options.file || config[:release_path]),
         message: message || '',
         token: options.token || ENV['SHAMAN_TOKEN'],
