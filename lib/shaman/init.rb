@@ -1,3 +1,5 @@
+require 'yaml'
+
 module Shaman
   class Init
     include Shaman::Helpers

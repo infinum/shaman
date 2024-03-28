@@ -1,6 +1,5 @@
 require 'http'
 require 'git'
-require 'yaml'
 require 'tty-prompt'
 require 'shaman/helpers'
 require 'shaman/init'
