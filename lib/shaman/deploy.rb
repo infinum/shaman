@@ -5,6 +5,12 @@ module Shaman
     include Helpers
 
     DEFAULT_ENVIRONMENT = 'default'.freeze
+    DEFAULT_EDITOR = 'vi'.freeze
+    DEFAULT_MESSAGE = ''.freeze
+    DEFAULT_RELEASE_NAME = ''.freeze
+    GIT_DEFAULT_DIRECTORY = '.'.freeze
+    GIT_HEAD = 'HEAD'.freeze
+
     def initialize(args, options)
       @environment = args.first || DEFAULT_ENVIRONMENT
       @options = options
@@ -25,10 +31,10 @@ module Shaman
       @deploy_options ||= {
         environment_token: options.env_token || config[:token],
         release: HTTP::FormData::File.new(options.file || config[:release_path]),
-        message: message || '',
+        message: message || DEFAULT_MESSAGE,
         token: options.token || ENV['SHAMAN_TOKEN'],
         minimum_version: options.minimum_version || false,
-        name: options.release_name || ''
+        name: options.release_name || DEFAULT_RELEASE_NAME
       }
     end
 
@@ -43,11 +49,14 @@ module Shaman
     end
 
     def gcommit
-      @gcommit ||= Git.open('.').gcommit(options.commit || 'HEAD')
+      @gcommit ||= Git.open(GIT_DEFAULT_DIRECTORY).gcommit(options.commit || GIT_HEAD)
     end
 
     def message
-      options.git ? gcommit.message : options.message || ask_editor(nil, 'vi')
+      return gcommit.message if options.git
+
+      options.message || ask_editor(nil, ENV.fetch('EDITOR', DEFAULT_EDITOR))
+    end
 
     def load_config
       YAML.load_file(config_file).fetch(environment)
