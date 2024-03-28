@@ -1,3 +1,5 @@
+require 'yaml'
+
 module Shaman
   class Deploy
     include Helpers
