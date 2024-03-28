@@ -4,9 +4,9 @@ module Shaman
   class Deploy
     include Helpers
 
+    DEFAULT_ENVIRONMENT = 'default'.freeze
     def initialize(args, options)
-      error!('Must specify environment') if args.count < 1
-      @environment = args.first
+      @environment = args.first || DEFAULT_ENVIRONMENT
       @options = options
       verify_options
     end
@@ -22,7 +22,6 @@ module Shaman
     attr_reader :environment, :options
 
     def deploy_options
-      raise 'Wrong environment' if config.nil?
       @deploy_options ||= {
         environment_token: options.env_token || config[:token],
         release: HTTP::FormData::File.new(options.file || config[:release_path]),
@@ -40,8 +39,7 @@ module Shaman
     end
 
     def config
-      @config ||=
-        YAML.load_file(options.config || PROJECT_CONFIG_PATH)[environment]
+      @config ||= load_config
     end
 
     def gcommit
@@ -50,6 +48,15 @@ module Shaman
 
     def message
       options.git ? gcommit.message : options.message || ask_editor(nil, 'vi')
+
+    def load_config
+      YAML.load_file(config_file).fetch(environment)
+    rescue KeyError => e
+      error!("Envrionment #{environment} doesn't exist in #{config_file}")
+    end
+
+    def config_file
+      options.config || PROJECT_CONFIG_PATH
     end
   end
 end
