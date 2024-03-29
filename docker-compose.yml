@@ -1,0 +1,16 @@
+version: '3.9'
+name: infinum-shaman
+
+services:
+  runner:
+    build:
+      context: .
+    image: shaman:1.0.0
+    environment:
+      HISTFILE: /app/tmp/bash_history
+      SHAMAN_TOKEN: change-me
+    volumes:
+      - .:/app:cached
+    command: ['bash']
+    stdin_open: true
+    tty: true
