@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Shaman do
   it 'has a version number' do
     expect(Shaman::VERSION).not_to be nil
