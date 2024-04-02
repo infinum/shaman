@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 
 module Shaman
@@ -5,12 +7,12 @@ module Shaman
     include Helpers
     include Commander::Methods
 
-    DEFAULT_ENVIRONMENT = 'default'.freeze
-    DEFAULT_EDITOR = 'vi'.freeze
-    DEFAULT_MESSAGE = ''.freeze
-    DEFAULT_RELEASE_NAME = ''.freeze
-    GIT_DEFAULT_DIRECTORY = '.'.freeze
-    GIT_HEAD = 'HEAD'.freeze
+    DEFAULT_ENVIRONMENT = 'default'
+    DEFAULT_EDITOR = 'vi'
+    DEFAULT_MESSAGE = ''
+    DEFAULT_RELEASE_NAME = ''
+    GIT_DEFAULT_DIRECTORY = '.'
+    GIT_HEAD = 'HEAD'
 
     def initialize(args, options)
       @environment = args.first || DEFAULT_ENVIRONMENT
