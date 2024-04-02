@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'http'
 require 'git'
 require 'tty-prompt'
@@ -13,7 +15,7 @@ require 'shaman/tryout_apps/resource/release'
 require 'shaman/version'
 
 module Shaman
-  PROJECT_CONFIG_PATH = '.shaman.yml'.freeze
+  PROJECT_CONFIG_PATH = '.shaman.yml'
 
   class << self
     def tryout_apps_client

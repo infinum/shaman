@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Shaman::CLI do
   include Shaman::TestHelpers::Terminal
   include Shaman::TestHelpers::Command

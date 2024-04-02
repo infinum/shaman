@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Shaman
   module TryoutApps
     DEVELOPMENT_BASE_URI = 'http://localhost:3000'

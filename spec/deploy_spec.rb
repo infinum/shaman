@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Shaman::Deploy do
   include Shaman::TestHelpers::Prompt
   include Shaman::TestHelpers::Terminal
