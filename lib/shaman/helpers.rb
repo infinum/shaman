@@ -1,7 +1,7 @@
 module Shaman
   module Helpers
     def prompt
-      @prompt ||= TTY::Prompt.new
+      Shaman.prompt
     end
 
     def error!(msg)
