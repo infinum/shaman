@@ -9,3 +9,7 @@ COPY Gemfile shaman.gemspec ./
 COPY lib/shaman/version.rb lib/shaman/version.rb
 
 RUN bundle install
+
+FROM base as ci
+RUN mkdir /app/tmp
+COPY . /app

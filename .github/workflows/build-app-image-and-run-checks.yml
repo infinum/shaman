@@ -25,7 +25,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
           file: Dockerfile
-          target: base
+          target: ci
           push: false
           load: true
           tags: app
