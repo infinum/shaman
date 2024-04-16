@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Specs
 - RuboCop linter and formatter
 - CI steps
+- CHANGELOG.md
+- codeowners file
+- pull request template
 
 ### Changed
 
