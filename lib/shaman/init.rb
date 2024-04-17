@@ -48,7 +48,7 @@ module Shaman
     end
 
     def fetch_projects
-      params = { token: ENV.fetch('SHAMAN_TOKEN', nil), platform: }
+      params = { token: ENV.fetch('SHAMAN_TOKEN', nil), platform: platform }
       params[:favorites] = options.favorites if options.favorites
       params[:search] = options.search if options.search
 
@@ -79,7 +79,7 @@ module Shaman
         .reduce({}) do |memo, environment|
         release_path = prompt.ask("Release path for #{environment.name}", default: 'path/to/release')
 
-        memo.merge(environment.name => { release_path:, token: environment.token })
+        memo.merge(environment.name => { release_path: release_path, token: environment.token })
       end
     end
 

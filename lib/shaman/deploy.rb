@@ -40,11 +40,11 @@ module Shaman
     def release
       @release ||=
         Shaman::TryoutApps::Resource::Release::CreateInput.new({ file: release_file,
-                                                                 environment_token:,
-                                                                 message:,
-                                                                 token:,
-                                                                 minimum_version:,
-                                                                 name: })
+                                                                 environment_token: environment_token,
+                                                                 message: message,
+                                                                 token: token,
+                                                                 minimum_version: minimum_version,
+                                                                 name: name })
     end
 
     def environment_token

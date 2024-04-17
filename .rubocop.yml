@@ -4,7 +4,7 @@ inherit_gem:
 require: rubocop-infinum
 
 AllCops:
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.0
 
 Gemspec/RequiredRubyVersion:
   Enabled: false

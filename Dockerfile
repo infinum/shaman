@@ -1,4 +1,4 @@
-FROM ruby:3.3.0-slim-bookworm as base
+FROM ruby:3.0 as base
 
 RUN apt-get update -qq \
   && apt-get install -yq --no-install-recommends git build-essential less
