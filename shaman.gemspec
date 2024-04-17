@@ -21,10 +21,9 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'commander'
-  spec.add_dependency 'git'
-  spec.add_dependency 'http'
+  spec.add_dependency 'commander', '~> 5.0'
+  spec.add_dependency 'git', '~> 1.19'
+  spec.add_dependency 'http', '~> 5.2'
   spec.add_dependency 'tty-prompt', '0.12.0'
-  spec.add_dependency 'webmock'
   spec.metadata['rubygems_mfa_required'] = 'true'
 end
