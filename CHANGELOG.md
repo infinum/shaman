@@ -15,10 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CHANGELOG.md
 - codeowners file
 - pull request template
+- Require Ruby >= 3.0
+- Dependency version constraints
 
 ### Changed
 
 - Modularize CLI
+- Fixed syntax to be compliant with Ruby 3.0
 
 ### Removed
 
