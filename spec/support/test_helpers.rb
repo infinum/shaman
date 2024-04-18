@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'fileutils'
 require 'yaml'
 
@@ -41,13 +43,13 @@ module Shaman
         Shaman.prompt.input.rewind
       end
 
-      def within_test_dir(&)
+      def within_test_dir(&block)
         dir = File.expand_path('../tmp/test', Shaman.spec_root)
 
         FileUtils.remove_dir(dir, force: true)
         FileUtils.mkdir(dir)
 
-        FileUtils.cd(dir, &)
+        FileUtils.cd(dir, &block)
         FileUtils.remove_dir(dir)
       end
 

@@ -1,0 +1,19 @@
+inherit_gem:
+  rubocop-infinum: rubocop.yml
+
+require: rubocop-infinum
+
+AllCops:
+  TargetRubyVersion: 3.0
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Rails:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 20
+
+RSpec/MultipleExpectations:
+  Max: 5

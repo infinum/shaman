@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Shaman
   module TryoutApps
     class Client
@@ -7,7 +9,7 @@ module Shaman
 
       def list_projects(params)
         Shaman::TryoutApps::Resource::Project::ListResponse.new(
-          HTTP.get("#{base_uri}/api/v1/projects", params:)
+          HTTP.get("#{base_uri}/api/v1/projects", params: params)
         )
       end
 

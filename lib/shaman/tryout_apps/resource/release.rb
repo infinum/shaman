@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Shaman
   module TryoutApps
     module Resource
@@ -15,11 +17,11 @@ module Shaman
           def form
             {
               release: HTTP::FormData::File.new(file),
-              environment_token:,
-              message:,
-              token:,
-              minimum_version:,
-              name:
+              environment_token: environment_token,
+              message: message,
+              token: token,
+              minimum_version: minimum_version,
+              name: name
             }
           end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 
 module Shaman
@@ -5,12 +7,12 @@ module Shaman
     include Helpers
     include Commander::Methods
 
-    DEFAULT_ENVIRONMENT = 'default'.freeze
-    DEFAULT_EDITOR = 'vi'.freeze
-    DEFAULT_MESSAGE = ''.freeze
-    DEFAULT_RELEASE_NAME = ''.freeze
-    GIT_DEFAULT_DIRECTORY = '.'.freeze
-    GIT_HEAD = 'HEAD'.freeze
+    DEFAULT_ENVIRONMENT = 'default'
+    DEFAULT_EDITOR = 'vi'
+    DEFAULT_MESSAGE = ''
+    DEFAULT_RELEASE_NAME = ''
+    GIT_DEFAULT_DIRECTORY = '.'
+    GIT_HEAD = 'HEAD'
 
     def initialize(args, options)
       @environment = args.first || DEFAULT_ENVIRONMENT
@@ -38,11 +40,11 @@ module Shaman
     def release
       @release ||=
         Shaman::TryoutApps::Resource::Release::CreateInput.new({ file: release_file,
-                                                                 environment_token:,
-                                                                 message:,
-                                                                 token:,
-                                                                 minimum_version:,
-                                                                 name: })
+                                                                 environment_token: environment_token,
+                                                                 message: message,
+                                                                 token: token,
+                                                                 minimum_version: minimum_version,
+                                                                 name: name })
     end
 
     def environment_token
