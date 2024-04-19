@@ -7,7 +7,7 @@ module Shaman
   module TestHelpers
     module Prompt
       def test_prompt
-        Shaman.prompt = TTY::TestPrompt.new
+        Shaman.prompt = TTY::Prompt::Test.new
       end
     end
 
