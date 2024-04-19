@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Travis CI config
+- Removed unused proguard file deploy option
 
 ## [2.6] - 2019-07-19
 

@@ -37,13 +37,12 @@ module Shaman
       end
     end
 
-    def deploy # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+    def deploy # rubocop:disable Metrics/MethodLength
       command :deploy do |c|
         c.syntax = 'shaman deploy [environment]'
         c.description = 'Deploy a release to specified environment'
         c.option '-m', '--message MESSAGE', String, 'Changelog message'
         c.option '-f', '--file FILE', String, 'Release path'
-        c.option '-p', '--proguard FILE', String, 'Add aditional proguard mapping'
         c.option '-t', '--token TOKEN', String, 'Use different user token'
         c.option '-c', '--config FILE', String, 'Use different config file'
         c.option '-g', '--git', 'Use git for message (overrides any manual settings!)'
