@@ -25,7 +25,7 @@ module Shaman
 
       response = Shaman.tryout_apps_client.create_release(release)
 
-      if response.success? == 200
+      if response.success?
         prompt.ok(response.data)
       else
         error!("Failed to create a release: #{response.data}")
