@@ -3,7 +3,7 @@
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
 require 'shaman'
-require 'tty/test_prompt'
+require 'tty/prompt/test'
 require 'pry'
 
 module Shaman

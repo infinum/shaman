@@ -24,6 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'commander', '~> 5.0'
   spec.add_dependency 'git', '~> 1.19'
   spec.add_dependency 'http', '~> 5.2'
-  spec.add_dependency 'tty-prompt', '0.12.0'
+  spec.add_dependency 'tty-prompt', '~> 0.23'
   spec.metadata['rubygems_mfa_required'] = 'true'
 end
