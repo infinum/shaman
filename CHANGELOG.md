@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Create release API response status resolution
+
 ## [3.0.0] - 2024-04-19
 
 ### Added

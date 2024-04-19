@@ -24,7 +24,7 @@ describe Shaman::Deploy do
         write_config({ 'default' => { release_path: 'test.ipa', token: 'xyz' } })
         expect do
           run_command('deploy', options: ['-m', 'New build', '-n', '1.2.3'])
-        end.to exit_with_status
+        end.not_to raise_exception
       end
 
       expect(Shaman.prompt.output.string).to include('Successfuly deployed extra v1.2.3')

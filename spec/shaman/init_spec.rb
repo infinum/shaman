@@ -37,7 +37,9 @@ describe Shaman::Init do
              .to_return(status: 200, body: JSON.dump(projects), headers: {})
 
       within_test_dir do
-        run_command('init')
+        expect do
+          run_command('init')
+        end.not_to raise_exception
         expect(YAML.load_file('.shaman.yml')).to eq(
           'extra-production' => { release_path: 'tmp/test/production.zip', token: 'a123' },
           'extra-staging' => { release_path: 'tmp/test/staging.zip', token: 'b456' }
@@ -54,7 +56,11 @@ describe Shaman::Init do
         stub = stub_request(:get, 'https://infinum.tryoutapps.com/api/v1/projects')
                .with(query: { favorites: true, platform: 'android', token: '***' })
                .to_return(status: 200, body: JSON.dump(projects), headers: {})
-        within_test_dir { run_command('init', options: ['-f']) }
+        within_test_dir do
+          expect do
+            run_command('init', options: ['-f'])
+          end.not_to raise_exception
+        end
 
         expect(stub).to have_been_requested
       end
@@ -67,7 +73,11 @@ describe Shaman::Init do
         stub = stub_request(:get, 'https://infinum.tryoutapps.com/api/v1/projects')
                .with(query: { search: 'extra', platform: 'android', token: '***' })
                .to_return(status: 200, body: JSON.dump(projects), headers: {})
-        within_test_dir { run_command('init', options: ['-s', 'extra']) }
+        within_test_dir do
+          expect do
+            run_command('init', options: ['-s', 'extra'])
+          end.not_to raise_exception
+        end
         expect(stub).to have_been_requested
       end
     end
@@ -80,7 +90,11 @@ describe Shaman::Init do
                .with(query: { platform: 'ios', token: '***' })
                .to_return(status: 200, body: JSON.dump(projects), headers: {})
 
-        within_test_dir { run_command('init', options: ['-p', 'ios']) }
+        within_test_dir do
+          expect do
+            run_command('init', options: ['-p', 'ios'])
+          end.not_to raise_exception
+        end
         expect(stub).to have_been_requested
       end
     end
@@ -92,7 +106,11 @@ describe Shaman::Init do
                .with(query: { platform: 'ios', token: '***' })
                .to_return(status: 200, body: JSON.dump(projects), headers: {})
 
-        within_test_dir { run_command('init', options: ['-p', 'ios']) }
+        within_test_dir do
+          expect do
+            run_command('init', options: ['-p', 'ios'])
+          end.not_to raise_exception
+        end
         expect(stub).to have_been_requested
       end
     end
