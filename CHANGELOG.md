@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Changelog links
+
 ## [3.0.1] - 2024-04-19
 
 ### Fixed
@@ -57,7 +60,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.0] - 2016-02-23
 
 [unreleased]: https://github.com/infinum/shaman/compare/v3.0.1...HEAD
-[3.0.0]: https://github.com/infinum/shaman/compare/v3.0.0...v3.0.1
+[3.0.1]: https://github.com/infinum/shaman/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/infinum/shaman/compare/v2.7.0...v3.0.0
 [2.7.0]: https://rubygems.org/gems/shaman_cli/versions/2.7.0
 [2.6]: https://rubygems.org/gems/shaman_cli/versions/2.6
