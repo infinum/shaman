@@ -30,6 +30,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Travis CI config
 - Removed unused proguard file deploy option
 
+## [2.7.0] - 2024-04-19
+
 ## [2.6] - 2019-07-19
 
 ## [2.5.0] - 2019-01-28
@@ -46,7 +48,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.0.0] - 2016-02-23
 
-[unreleased]: https://github.com/infinum/shaman
+[unreleased]: https://github.com/infinum/shaman/compare/v2.7.0...HEAD
+[2.7.0]: https://rubygems.org/gems/shaman_cli/versions/2.7.0
 [2.6]: https://rubygems.org/gems/shaman_cli/versions/2.6
 [2.5.0]: https://rubygems.org/gems/shaman_cli/versions/2.5.0
 [2.4.0]: https://rubygems.org/gems/shaman_cli/versions/2.4.0
