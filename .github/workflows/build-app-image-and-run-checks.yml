@@ -1,0 +1,39 @@
+name: Build app image and run checks
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  build_image:
+    name: Build app image and run checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build app image
+        uses: docker/build-push-action@v5
+        with:
+          builder: ${{ steps.buildx.outputs.name }}
+          context: .
+          file: Dockerfile
+          target: ci
+          push: false
+          load: true
+          tags: app
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Lint
+        run: docker run app rubocop
+
+      - name: Test
+        run: docker run app rspec

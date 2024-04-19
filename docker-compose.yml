@@ -5,6 +5,7 @@ services:
   runner:
     build:
       context: .
+      target: base
     image: shaman:1.0.0
     environment:
       HISTFILE: /app/tmp/bash_history

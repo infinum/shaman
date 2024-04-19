@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 module Shaman
   module Helpers
     def prompt
-      @prompt ||= TTY::Prompt.new
+      Shaman.prompt
     end
 
-    def error!(msg)
+    def error!(msg, exit_code = Shaman::CLI::ExitCode::PROCESSING_ERROR)
       prompt.error(msg)
-      exit(-1)
+      exit(exit_code)
     end
   end
 end
