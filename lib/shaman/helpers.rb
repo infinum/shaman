@@ -6,9 +6,9 @@ module Shaman
       Shaman.prompt
     end
 
-    def error!(msg)
+    def error!(msg, exit_code = Shaman::CLI::ExitCode::PROCESSING_ERROR)
       prompt.error(msg)
-      exit(-1)
+      exit(exit_code)
     end
   end
 end

@@ -18,7 +18,7 @@ describe Shaman::Init do
     end
 
     it 'shows an error' do
-      expect { run_command('init') }.to raise_error(SystemExit)
+      expect { run_command('init') }.to exit_with_status
 
       expect(Shaman.prompt.output.string).to include("SHAMAN_TOKEN isn't defined")
     end
@@ -110,7 +110,7 @@ describe Shaman::Init do
              .to_return(status: 401, body: 'Invalid token', headers: {})
 
       within_test_dir do
-        expect { run_command('init') }.to raise_error(SystemExit)
+        expect { run_command('init') }.to exit_with_status
         expect(Shaman.prompt.output.string).to include('Failed to load projects: Invalid token')
       end
       expect(stub).to have_been_requested

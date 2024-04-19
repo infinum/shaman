@@ -4,6 +4,10 @@ require 'commander'
 
 module Shaman
   class CLI
+    module ExitCode
+      PROCESSING_ERROR = 99
+    end
+
     include Commander::Methods
 
     def run
@@ -49,9 +53,6 @@ module Shaman
         c.option '-x', '--env_token ENV_TOKEN', String, 'Environment token'
         c.action do |args, options|
           Shaman::Deploy.new(args, options).deploy
-        rescue StandardError => e
-          say_error e.message
-          exit(-1)
         end
       end
     end

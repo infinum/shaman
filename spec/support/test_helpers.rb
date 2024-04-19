@@ -29,7 +29,7 @@ module Shaman
 
     module Command
       def run_command(command, options: [])
-        mock_argv([command, *options])
+        mock_argv([command, *options, '--trace'])
         Shaman::CLI.new.run
       end
 
@@ -59,6 +59,13 @@ module Shaman
 
       def cp_file_fixture(src)
         FileUtils.cp(File.expand_path("files/#{src}", Shaman.spec_root), Dir.pwd)
+      end
+
+      def exit_with_status(status = Shaman::CLI::ExitCode::PROCESSING_ERROR)
+        raise_error(
+          an_instance_of(SystemExit)
+            .and(having_attributes(status: status))
+        )
       end
     end
   end
