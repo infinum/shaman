@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Ruby >= 3.0
 - Dependency version constraints
 - Custom exit code for processing errors
+- Development section to the README
 
 ### Changed
 
