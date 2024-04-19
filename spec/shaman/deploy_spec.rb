@@ -24,7 +24,7 @@ describe Shaman::Deploy do
         write_config({ 'default' => { release_path: 'test.ipa', token: 'xyz' } })
         expect do
           run_command('deploy', options: ['-m', 'New build', '-n', '1.2.3'])
-        end.to raise_error(SystemExit)
+        end.to exit_with_status
       end
 
       expect(Shaman.prompt.output.string).to include('Successfuly deployed extra v1.2.3')
@@ -46,7 +46,8 @@ describe Shaman::Deploy do
         write_config({ 'default' => { release_path: 'test.ipa', token: 'xyz' } })
         expect do
           run_command('deploy', options: ['-m', 'New build', '-n', '1.2.3'])
-        end.to raise_error(SystemExit)
+        end.to exit_with_status
+
         expect(Shaman.prompt.output.string).to include('Failed to create a release: Invalid token')
       end
       expect(stub).to have_been_requested
