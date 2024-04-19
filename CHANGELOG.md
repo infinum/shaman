@@ -28,7 +28,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Travis CI config
 
-## [2.6] - 2014-05-31
+## [2.6] - 2019-07-19
+
+## [2.5.0] - 2019-01-28
+
+## [2.4.0] - 2018-01-30
+
+## [2.3.0] - 2017-09-29
+
+## [2.2.0] - 2017-03-23
+
+## [2.1.1] - 2017-01-11
+
+## [2.1.0] - 2016-11-22
+
+## [2.0.0] - 2016-02-23
 
 [unreleased]: https://github.com/infinum/shaman
 [2.6]: https://rubygems.org/gems/shaman_cli/versions/2.6
