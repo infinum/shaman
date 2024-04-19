@@ -1,6 +1,5 @@
 require 'http'
 require 'git'
-require 'yaml'
 require 'tty-prompt'
 require 'shaman/helpers'
 require 'shaman/init'
@@ -16,5 +15,5 @@ module Shaman
     else
       'https://infinum.tryoutapps.com'
     end
-  LABS_URL = ENV['SERVER_URL'] || DEFAULT_URL
+  LABS_URL = ENV.fetch('SERVER_URL', DEFAULT_URL)
 end
